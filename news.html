@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ news.title }}</title>
+    <meta charset="utf-8">
+    <link media="screen" type="text/css" href="https://alpha.design.dt00.net/popscroll/css/popScroll.css" rel="stylesheet" />
+    <link media="screen" type="text/css" href="http://meganovosti.net/style/main-page.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://meganovosti.net/script/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="http://meganovosti.net/script/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="http://meganovosti.net/script/pop1/modernizr.custom.js"></script>
+    <script type="text/javascript" src="http://meganovosti.net/script/pop1/jquery.liMarquee.js"></script>
+    <script type="text/javascript" src="http://meganovosti.net/script/pop1/script.js"></script>
+    <script type="text/javascript" src="https://alpha.design.dt00.net/popscroll/js/popScroll.js"></script>
+
+    <style>
+        /* Common layout */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body, h1, h2, h3, a {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            font: normal 12px Arial;
+            color: #282828;
+        }
+
+        .areaWrapper {
+            position: relative;
+            height: 100%;
+            width: 810px;
+            margin: 0 auto 0 auto;
+            padding: 0 20px 0 20px;
+        }
+
+        .pageWide .areaWrapper {
+            width: 980px;
+        }
+
+        .flbr {
+            clear: both;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        a {
+            color: #0047a7;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: none;
+            }
+
+            a img {
+                border: 0;
+            }
+
+        media="screen" a {
+            text-decoration: none;
+            color: #347ee7;
+        }
+
+        a.more span {
+            margin-left: 15px;
+        }
+
+        img.limitation {
+            position: absolute;
+            z-index: 1;
+            top: 1px;
+            right: 1px;
+        }
+
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+
+        /* Top */
+        #top {
+            height: 45px;
+            background: #2e2e2e;
+        }
+
+            #top #logo {
+                position: absolute;
+                top: 10px;
+                left: 27px;
+            }
+
+                #top #logo img {
+                    width: 228px;
+                    height: 24px;
+                }
+
+            #top #forAdvertisers, #top #forWebmasters {
+                display: block;
+                position: absolute;
+                top: 9px;
+                text-align: left;
+            }
+
+                #top #forAdvertisers a, #top #forWebmasters a {
+                    font-size: 11px;
+                    color: #bebdb7;
+                }
+
+            #top .multiButtons a {
+                color: #888;
+            }
+
+        #status {
+            width: 100%;
+            height: 29px;
+        }
+
+        /* Main */
+        #page {
+            position: relative;
+            min-height: 100%;
+        }
+
+        * html #page {
+            height: 100%;
+        }
+
+            #page #content {
+                padding-bottom: 120px;
+            }
+
+        /* Lay */
+        body#pageNews #page #content {
+            padding-bottom: 110px;
+        }
+
+        .blockWhite {
+            background: #fff;
+        }
+
+            .blockWhite h1 {
+                margin: -3px 0 10px 0;
+            }
+
+                .blockWhite h1, .blockWhite h1 a {
+                    color: #050505;
+                    font-size: 24px;
+                    line-height: 122%;
+                    font-weight: bold;
+                }
+        /*.blockWhite h1 a {text-decoration: none; border-bottom: 1px solid;}*/
+
+        #newsContent {
+            padding: 30px 0 20px;
+            background: #f0f0f0;
+        }
+
+            #newsContent .schell {
+                height: 100%;
+                position: relative;
+                width: 900px;
+                display: table;
+            }
+
+                #newsContent .schell img {
+                    margin: 0 20px 15px 0;
+                    width: 300px;
+                    float: left;
+                }
+
+        #newsAdp {
+            position: relative;
+            border-top: 1px solid #F3F0EA;
+        }
+            /*#newsAdp.active {border-top: 1px solid #F3F0EA;}*/
+
+            #newsAdp .item {
+                position: relative;
+                float: left;
+                width: 200px;
+                padding: 20px;
+                border: 1px solid #F3F0EA;
+                border-top: 0;
+            }
+
+                #newsAdp .item .wrapper {
+                    height: 110px;
+                    overflow: hidden;
+                }
+
+                    #newsAdp .item .wrapper .shader {
+                        position: absolute;
+                        right: 0;
+                        bottom: 20px;
+                        width: 100%;
+                        height: 10px;
+                        background: url('../img/bg/shader.png') repeat-x 0 100%;
+                        z-index: 5;
+                    }
+
+                #newsAdp .item .name_news {
+                    color: #0a67c6;
+                    font-size: 17px;
+                    line-height: 22px;
+                    text-decoration: underline;
+                }
+
+                #newsAdp .item .announce {
+                    font-size: 13px;
+                    color: #454441;
+                    text-decoration: none;
+                    line-height: 22px;
+                    display: block;
+                }
+
+                #newsAdp .item a.teaser {
+                    display: block;
+                    margin-bottom: 13px;
+                }
+
+                    #newsAdp .item a.teaser, #newsAdp .item a.teaser img {
+                        height: 200px;
+                    }
+
+                #newsAdp .item em {
+                    display: none;
+                }
+
+                #newsAdp .item .more {
+                    display: none;
+                }
+
+            #newsAdp .last {
+                margin-bottom: -4px;
+                border-bottom: 0;
+            }
+
+            /*#newsAdp .noImg {padding-left: 0;}*/
+            #newsAdp .noImg .teaser {
+                display: none;
+            }
+
+            #newsAdp .noImg em {
+                left: 0;
+            }
+
+            #newsAdp.newsAdpMulti {
+                margin-bottom: 0;
+            }
+
+                #newsAdp.newsAdpMulti .last {
+                    margin-bottom: -20px;
+                }
+
+        #newsAdpFooter {
+            margin-top: 30px;
+        }
+
+            #newsAdpFooter span {
+                margin-right: 30px;
+            }
+
+        #newsAdp .item h2 a {
+            color: #0047A7;
+            font-size: 18px;
+        }
+
+        .footer {
+            height: 100px;
+            margin-top: 20px;
+            background-color: #f5f5f5;
+            padding-top: 20px;
+        }
+
+        .text div {
+            line-height: 20px;
+        }
+
+        поміняй на .text div, .text p {
+            line-height: 20px;
+        }
+    </style>
+
+
+
+</head>
+<body id="pageNews" class="pageWide page-banners">
+
+
+    <!-- Counter top
+    ================================================== -->
+    <!-- Page
+    ================================================== -->
+    <div id="page">
+
+        <div id="content">
+
+            <!-- Top
+            ================================================== -->
+            <div class="areaWrapper">
+                <div class="top_bar">
+                    <div style="font-size:19px;padding-top:10px;color:grey; font-family:georgia;" class="logo">
+                        NewsRanker.ru
+                    </div>
+                    <div class="start">
+                        <img src="http://meganovosti.net/images/star.png" alt="" />
+                        <a href="javascript:void(0);" onclick="return bookmark(this);">Сделать стартовой</a>
+                    </div>
+                    <div>
+                        <p class="day">newsrank.ru - самые читаемые новости интернета</p>
+                    </div>
+                    <div class="social_networks">
+                        <script type="text/javascript" src="http://shareit.meta.ua/js/share.js" charset="utf-8"></script>
+                        <div id="shareBox"></div>
+                        <script type="text/javascript">MShare.button('shareBox', false, { services: ['fb', 'tw', 'od', 'lj'] });</script>
+                    </div>
+                </div>
+            </div>
+            <!-- Content
+            ================================================== -->
+            <div class="main-content">
+
+                <div id="newsMulti" class="blockWhite">
+                    <div id="newsContent">
+                        <div class="areaWrapper">
+                            <div class="schell" href="/news/{{ news.id }}-full.html">
+                                <h1 class="title"><a href="/news/{{ news.id }}-full.html" target="_blank" onclick="if (typeof __da_info == 'function') __da_info(this)" onmouseover="if (typeof __da_info_over == 'function') __da_info_over(this)">{{ news.title }}</a></h1>
+                                <a href="/news/{{ news.id }}-full.html" target="_blank" class="teaser" onclick="if (typeof __da_info == 'function') __da_info(this)" onmouseover="if (typeof __da_info_over == 'function') __da_info_over(this)">
+                                    <span><img src="http://img.abc-news.ru/{{ news.folderId }}/{{ news.parentId }}_s0_1.jpg" class="png" alt="" /></span>
+                                </a>
+                                <div class="text">
+                                    <p class="announce"><a href="/news/{{ news.id }}-full.html" target="_blank" onclick="if (typeof __da_info == 'function') __da_info(this)" onmouseover="if (typeof __da_info_over == 'function') __da_info_over(this)"></a></p>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio cum reiciendis eligendi facere consequatur nesciunt rerum impedit vitae vero provident, obcaecati pariatur error, tempora, minima eveniet dolores tenetur numquam. Blanditiis est cum iusto esse, rerum quos rem atque quidem veritatis tempore, nostrum nobis repudiandae accusantium molestias odio, voluptates dolorum unde magni numquam nisi harum ut voluptatem at. Distinctio incidunt quam quod facere tenetur, obcaecati vero dicta sint maxime natus voluptates eligendi cumque saepe temporibus dolorum, minus ex. Optio iusto fuga doloremque cum obcaecati. Error tenetur totam porro quia sapiente dolores, ullam ducimus vel, cupiditate ex quaerat nesciunt placeat officiis. Excepturi autem dolorem dicta delectus reiciendis veritatis at eum error sapiente deserunt qui ipsam et veniam modi ipsum, fugit maiores distinctio exercitationem illo recusandae quia. Animi praesentium eos voluptates, earum sint veniam laboriosam assumenda eius expedita, nesciunt qui voluptate et velit explicabo omnis soluta laborum ut hic modi doloremque eligendi quia? Et autem quaerat eius necessitatibus, inventore sapiente cum maxime aspernatur, voluptatum eos fugit doloribus placeat, aliquam quas quasi, facere tenetur molestiae libero omnis obcaecati in? Aperiam magnam cupiditate unde et aliquam nihil vitae quas quibusdam beatae hic aspernatur suscipit amet laboriosam eveniet officiis expedita ducimus dolorum, doloribus recusandae ipsa nostrum voluptatum odit. Officia accusamus voluptatem voluptas minima ipsa, nihil pariatur facilis tenetur nam, mollitia aperiam dignissimos quo consequatur cumque culpa libero, eligendi omnis delectus quasi. Minima sapiente dolore vero. Quia, consectetur eligendi, aperiam labore perspiciatis magnam cum adipisci, ducimus optio sit, sunt qui nesciunt saepe dolore accusantium beatae ea odio facere omnis recusandae repudiandae sint. Deserunt nihil distinctio impedit commodi cumque mollitia est nemo fugit optio sapiente. Et ullam nesciunt, officiis deleniti voluptates non saepe reprehenderit nostrum quia vitae corporis dolorum porro, fugit earum, placeat voluptas molestiae? Aliquid dicta voluptatibus hic laboriosam, saepe assumenda magni eum! Voluptas vitae earum, aperiam.</p>
+                                    <p>Voluptate, voluptatibus vitae quisquam voluptatem nam adipisci perferendis laudantium. Repudiandae eaque illum delectus sed minus expedita, obcaecati excepturi recusandae, ipsa dignissimos odit sint, ullam? Minima impedit ut ipsum sapiente ducimus hic iusto dolor, consequuntur accusantium dolorem qui sit molestias et laborum non quidem quaerat magnam reiciendis at! Voluptas iste ipsa placeat sequi optio necessitatibus repellendus, magni fuga, accusantium est repudiandae impedit quo libero reiciendis rerum itaque, suscipit ducimus velit quas quia consectetur! Amet officia odit voluptatibus excepturi ratione, mollitia aut reiciendis nihil, animi voluptatum ad eveniet velit quos assumenda. Sequi excepturi, hic reprehenderit consectetur temporibus aperiam veritatis fugiat maxime nesciunt dolor. Repellat illum, possimus harum autem aliquid ad nulla aliquam quod, quas ipsum est, doloremque! Possimus pariatur quae alias sit aspernatur vitae blanditiis hic consectetur iure amet placeat minus obcaecati, animi fuga velit incidunt nisi aperiam repellat esse necessitatibus voluptate, sequi quibusdam! Aut, explicabo reiciendis expedita officia rerum quo debitis sapiente aspernatur, earum doloribus aliquid ipsum veritatis autem dignissimos odit error recusandae quaerat voluptas mollitia iste quisquam est. Aspernatur cupiditate, facilis repudiandae animi eligendi a soluta. Obcaecati quam iusto nesciunt temporibus veniam blanditiis at, incidunt amet accusamus voluptates illum nobis accusantium voluptas, officiis totam ad similique neque animi. Tenetur error ipsum beatae ab, repellat veniam, inventore expedita nostrum quod sunt, eum alias voluptas ducimus cupiditate vitae nobis doloremque culpa debitis sit eos nesciunt odio distinctio. Blanditiis iusto praesentium, omnis laboriosam quidem beatae laborum, porro. Rem unde illum illo ducimus at, porro quia neque, sunt rerum repudiandae! Enim dignissimos excepturi, consequuntur quidem. Commodi aut, dolorum fugiat sint! Corporis eius quas expedita iusto cupiditate veritatis distinctio, voluptates deserunt deleniti aliquid perferendis aperiam possimus hic dolorem iure debitis libero vel ad, ex asperiores illo. Ex sed, culpa, et veniam dignissimos ducimus omnis consequuntur quos pariatur odio, explicabo repudiandae aperiam numquam ullam molestiae quia.</p>
+                                    <p>Accusantium nisi id, rem tempora quod consequuntur reprehenderit nesciunt explicabo quasi neque laudantium temporibus assumenda adipisci nemo vitae quo atque, ratione saepe ullam quia at. Accusantium, cum quae necessitatibus fugit ducimus, voluptatum itaque eaque tenetur provident sequi voluptatem accusamus dolor quam! Suscipit fugit dolore, commodi illum praesentium voluptate, officia iste consectetur nam, incidunt ex. Eos minima laudantium fugiat illum sit totam fuga esse debitis obcaecati maxime asperiores tempore, neque quis exercitationem, sint, blanditiis earum eveniet quisquam perferendis inventore. Quos, iure perferendis obcaecati minima dicta accusamus a sequi laudantium fugit, voluptatum rem error laborum itaque eaque unde explicabo. Facere asperiores tempore inventore voluptate cumque quam quisquam vitae nulla eius deleniti debitis eum fuga quidem dolor, perferendis minima dolore, ea nam sit, deserunt molestias amet architecto! Magni, dolores. Animi nemo repellat, perspiciatis dignissimos ut consectetur iste hic error sequi, architecto, exercitationem ipsum eum ipsa odit eveniet totam veritatis. Voluptate repellendus voluptates fugit, omnis. Deleniti minus blanditiis, quae corporis! Vitae nam, amet deleniti consequuntur laudantium itaque ducimus blanditiis atque, saepe sit nesciunt natus sequi consequatur dicta expedita sapiente sunt minima! Consequuntur sunt dolorem maiores, totam magni esse ut laudantium reprehenderit animi facere saepe laborum sapiente fugiat. Perspiciatis voluptatem, esse saepe voluptate, dignissimos deleniti cum a in eligendi earum eum labore dolorum consectetur sapiente similique perferendis error dicta laborum laudantium animi ducimus assumenda adipisci! Molestiae hic tempora a, soluta. Dignissimos, molestias accusantium ut temporibus dolor deserunt magni quis porro voluptatem quos vero quisquam placeat error vitae possimus expedita inventore. Non quam inventore ad magnam? Nobis omnis laborum quidem libero, ut quae saepe necessitatibus. Saepe ab inventore laudantium hic, adipisci suscipit doloremque architecto amet omnis consequatur laboriosam illo et a aut nesciunt dolorum sunt velit cumque at ducimus ipsa error quibusdam consequuntur exercitationem. Perspiciatis voluptatibus perferendis, dolorem dolor repudiandae, quas soluta nisi saepe voluptas reiciendis.</p>
+                                    <p>Hic pariatur atque at, facilis eligendi architecto, ipsa facere incidunt. Delectus animi quisquam natus beatae ullam saepe est, libero hic repudiandae ad eligendi reiciendis consequatur ipsam cum alias quia modi repellat quis ut facere reprehenderit itaque dignissimos. Pariatur et, sunt earum eum ipsam eligendi? Mollitia, cumque, ducimus! Temporibus at nobis qui aliquid, minus hic error tempora sit beatae in, sequi deserunt impedit quas cumque adipisci repellat ex reiciendis nostrum voluptates? Quidem similique enim libero eos quisquam aliquid eaque officia earum, numquam, maxime vel, adipisci autem ad minima explicabo aspernatur sequi porro. Similique officia, laboriosam corrupti maiores recusandae unde ea nisi ipsa eius cum doloremque id, tenetur optio, perspiciatis, error adipisci illo accusantium itaque deserunt nesciunt laborum sequi odio dolores alias suscipit? Error dicta soluta odio rem illo nostrum quaerat maxime dolores odit laboriosam accusamus voluptatem veniam, autem, sit rerum hic aspernatur id dignissimos, distinctio reprehenderit? Odit asperiores vero omnis, nisi tempore aliquid sapiente, vitae minus optio recusandae, maiores dignissimos voluptates laboriosam in necessitatibus blanditiis dolor. Quo possimus ipsum, natus quasi cum ex impedit fuga deserunt ipsa, aliquid dolorem eos aspernatur labore aliquam reprehenderit totam nihil minus omnis atque quam obcaecati corporis? Ratione officiis voluptatibus earum fugiat ullam, incidunt, error quasi dignissimos esse, dolorem doloremque. Fuga reiciendis, eveniet laboriosam repellat facere repudiandae quis laudantium! Harum, unde odit. Magni odio esse repellat laborum error mollitia, ab corrupti dolorem officia debitis quod corporis quo, blanditiis dolorum vel eius quis eveniet sed eaque, molestias voluptas voluptate. Cum minima dolore eos repellendus voluptates, atque sapiente voluptatum facere, odit officia non, quod soluta. Minima perferendis, optio est id recusandae fugit nesciunt! Dolorem voluptatum, sit aut provident laboriosam necessitatibus, eos neque laborum dolor quae nobis earum corporis similique labore illum tempore temporibus quas itaque alias magni ad! Saepe necessitatibus vero esse, ipsam iste, minus cupiditate accusamus repudiandae!</p>
+                                    <p>Ea eum possimus temporibus dolores. Velit et, facilis saepe at vero quisquam, nemo, pariatur perspiciatis voluptate aut optio temporibus! Sunt id ipsam, exercitationem dolorem incidunt tempore maxime cum quam fugit hic sit facilis et velit non expedita, officiis necessitatibus neque ipsa! Sapiente similique explicabo quidem quam totam, id velit nisi assumenda, vel nobis voluptatem hic minima, iusto vitae magnam qui amet atque! Voluptate harum dolorum corrupti, neque iusto perspiciatis eligendi expedita odio doloribus quisquam commodi natus modi amet veniam, beatae tempore numquam optio labore voluptas asperiores id alias voluptatem, sapiente aliquid. Maxime omnis ducimus tenetur, fugit soluta odio eius provident sed velit ratione dolores nostrum corporis asperiores quam sit qui totam enim, beatae, dolorum aperiam ipsum id dolor nam. Animi minus quo nisi cum ad natus blanditiis, ut. Aspernatur quos inventore delectus illo tempora labore eligendi ipsum necessitatibus aliquam dolor perferendis ut porro, molestias laborum atque eum accusantium totam magni illum iusto sapiente quisquam natus dignissimos. Autem, ratione. Rerum perferendis architecto cum, quis veniam vitae harum sint minus culpa, ipsam vel maxime voluptatibus asperiores quo blanditiis quibusdam. Illo cupiditate ex est, tenetur laudantium quibusdam autem mollitia voluptatem fugit delectus consectetur explicabo voluptates ratione provident magnam perferendis, at nisi. Quos dignissimos, minus. Vel unde suscipit aperiam iste illo repudiandae dignissimos architecto fugiat inventore qui molestiae voluptatum error sapiente beatae nam accusamus odio ex, recusandae laudantium aut, doloremque sit culpa. Vel distinctio quas assumenda minima autem laboriosam quae ea odit ut ipsa doloremque natus iusto a modi id repudiandae alias magni quam suscipit, nemo aut. Non incidunt in est officia voluptatibus eligendi porro enim quam, quidem amet odio impedit consectetur similique possimus recusandae nemo atque. Nisi atque, ipsa, libero quidem nemo, veniam vel similique fugit tempore eos, praesentium quos. Facere, iure, ab. Placeat et culpa, corporis doloribus dignissimos. Delectus voluptate nobis officia.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio cum reiciendis eligendi facere consequatur nesciunt rerum impedit vitae vero provident, obcaecati pariatur error, tempora, minima eveniet dolores tenetur numquam. Blanditiis est cum iusto esse, rerum quos rem atque quidem veritatis tempore, nostrum nobis repudiandae accusantium molestias odio, voluptates dolorum unde magni numquam nisi harum ut voluptatem at. Distinctio incidunt quam quod facere tenetur, obcaecati vero dicta sint maxime natus voluptates eligendi cumque saepe temporibus dolorum, minus ex. Optio iusto fuga doloremque cum obcaecati. Error tenetur totam porro quia sapiente dolores, ullam ducimus vel, cupiditate ex quaerat nesciunt placeat officiis. Excepturi autem dolorem dicta delectus reiciendis veritatis at eum error sapiente deserunt qui ipsam et veniam modi ipsum, fugit maiores distinctio exercitationem illo recusandae quia. Animi praesentium eos voluptates, earum sint veniam laboriosam assumenda eius expedita, nesciunt qui voluptate et velit explicabo omnis soluta laborum ut hic modi doloremque eligendi quia? Et autem quaerat eius necessitatibus, inventore sapiente cum maxime aspernatur, voluptatum eos fugit doloribus placeat, aliquam quas quasi, facere tenetur molestiae libero omnis obcaecati in? Aperiam magnam cupiditate unde et aliquam nihil vitae quas quibusdam beatae hic aspernatur suscipit amet laboriosam eveniet officiis expedita ducimus dolorum, doloribus recusandae ipsa nostrum voluptatum odit. Officia accusamus voluptatem voluptas minima ipsa, nihil pariatur facilis tenetur nam, mollitia aperiam dignissimos quo consequatur cumque culpa libero, eligendi omnis delectus quasi. Minima sapiente dolore vero. Quia, consectetur eligendi, aperiam labore perspiciatis magnam cum adipisci, ducimus optio sit, sunt qui nesciunt saepe dolore accusantium beatae ea odio facere omnis recusandae repudiandae sint. Deserunt nihil distinctio impedit commodi cumque mollitia est nemo fugit optio sapiente. Et ullam nesciunt, officiis deleniti voluptates non saepe reprehenderit nostrum quia vitae corporis dolorum porro, fugit earum, placeat voluptas molestiae? Aliquid dicta voluptatibus hic laboriosam, saepe assumenda magni eum! Voluptas vitae earum, aperiam.</p>
+                                    <p>Voluptate, voluptatibus vitae quisquam voluptatem nam adipisci perferendis laudantium. Repudiandae eaque illum delectus sed minus expedita, obcaecati excepturi recusandae, ipsa dignissimos odit sint, ullam? Minima impedit ut ipsum sapiente ducimus hic iusto dolor, consequuntur accusantium dolorem qui sit molestias et laborum non quidem quaerat magnam reiciendis at! Voluptas iste ipsa placeat sequi optio necessitatibus repellendus, magni fuga, accusantium est repudiandae impedit quo libero reiciendis rerum itaque, suscipit ducimus velit quas quia consectetur! Amet officia odit voluptatibus excepturi ratione, mollitia aut reiciendis nihil, animi voluptatum ad eveniet velit quos assumenda. Sequi excepturi, hic reprehenderit consectetur temporibus aperiam veritatis fugiat maxime nesciunt dolor. Repellat illum, possimus harum autem aliquid ad nulla aliquam quod, quas ipsum est, doloremque! Possimus pariatur quae alias sit aspernatur vitae blanditiis hic consectetur iure amet placeat minus obcaecati, animi fuga velit incidunt nisi aperiam repellat esse necessitatibus voluptate, sequi quibusdam! Aut, explicabo reiciendis expedita officia rerum quo debitis sapiente aspernatur, earum doloribus aliquid ipsum veritatis autem dignissimos odit error recusandae quaerat voluptas mollitia iste quisquam est. Aspernatur cupiditate, facilis repudiandae animi eligendi a soluta. Obcaecati quam iusto nesciunt temporibus veniam blanditiis at, incidunt amet accusamus voluptates illum nobis accusantium voluptas, officiis totam ad similique neque animi. Tenetur error ipsum beatae ab, repellat veniam, inventore expedita nostrum quod sunt, eum alias voluptas ducimus cupiditate vitae nobis doloremque culpa debitis sit eos nesciunt odio distinctio. Blanditiis iusto praesentium, omnis laboriosam quidem beatae laborum, porro. Rem unde illum illo ducimus at, porro quia neque, sunt rerum repudiandae! Enim dignissimos excepturi, consequuntur quidem. Commodi aut, dolorum fugiat sint! Corporis eius quas expedita iusto cupiditate veritatis distinctio, voluptates deserunt deleniti aliquid perferendis aperiam possimus hic dolorem iure debitis libero vel ad, ex asperiores illo. Ex sed, culpa, et veniam dignissimos ducimus omnis consequuntur quos pariatur odio, explicabo repudiandae aperiam numquam ullam molestiae quia.</p>
+                                    <p>Accusantium nisi id, rem tempora quod consequuntur reprehenderit nesciunt explicabo quasi neque laudantium temporibus assumenda adipisci nemo vitae quo atque, ratione saepe ullam quia at. Accusantium, cum quae necessitatibus fugit ducimus, voluptatum itaque eaque tenetur provident sequi voluptatem accusamus dolor quam! Suscipit fugit dolore, commodi illum praesentium voluptate, officia iste consectetur nam, incidunt ex. Eos minima laudantium fugiat illum sit totam fuga esse debitis obcaecati maxime asperiores tempore, neque quis exercitationem, sint, blanditiis earum eveniet quisquam perferendis inventore. Quos, iure perferendis obcaecati minima dicta accusamus a sequi laudantium fugit, voluptatum rem error laborum itaque eaque unde explicabo. Facere asperiores tempore inventore voluptate cumque quam quisquam vitae nulla eius deleniti debitis eum fuga quidem dolor, perferendis minima dolore, ea nam sit, deserunt molestias amet architecto! Magni, dolores. Animi nemo repellat, perspiciatis dignissimos ut consectetur iste hic error sequi, architecto, exercitationem ipsum eum ipsa odit eveniet totam veritatis. Voluptate repellendus voluptates fugit, omnis. Deleniti minus blanditiis, quae corporis! Vitae nam, amet deleniti consequuntur laudantium itaque ducimus blanditiis atque, saepe sit nesciunt natus sequi consequatur dicta expedita sapiente sunt minima! Consequuntur sunt dolorem maiores, totam magni esse ut laudantium reprehenderit animi facere saepe laborum sapiente fugiat. Perspiciatis voluptatem, esse saepe voluptate, dignissimos deleniti cum a in eligendi earum eum labore dolorum consectetur sapiente similique perferendis error dicta laborum laudantium animi ducimus assumenda adipisci! Molestiae hic tempora a, soluta. Dignissimos, molestias accusantium ut temporibus dolor deserunt magni quis porro voluptatem quos vero quisquam placeat error vitae possimus expedita inventore. Non quam inventore ad magnam? Nobis omnis laborum quidem libero, ut quae saepe necessitatibus. Saepe ab inventore laudantium hic, adipisci suscipit doloremque architecto amet omnis consequatur laboriosam illo et a aut nesciunt dolorum sunt velit cumque at ducimus ipsa error quibusdam consequuntur exercitationem. Perspiciatis voluptatibus perferendis, dolorem dolor repudiandae, quas soluta nisi saepe voluptas reiciendis.</p>
+                                    <p>Hic pariatur atque at, facilis eligendi architecto, ipsa facere incidunt. Delectus animi quisquam natus beatae ullam saepe est, libero hic repudiandae ad eligendi reiciendis consequatur ipsam cum alias quia modi repellat quis ut facere reprehenderit itaque dignissimos. Pariatur et, sunt earum eum ipsam eligendi? Mollitia, cumque, ducimus! Temporibus at nobis qui aliquid, minus hic error tempora sit beatae in, sequi deserunt impedit quas cumque adipisci repellat ex reiciendis nostrum voluptates? Quidem similique enim libero eos quisquam aliquid eaque officia earum, numquam, maxime vel, adipisci autem ad minima explicabo aspernatur sequi porro. Similique officia, laboriosam corrupti maiores recusandae unde ea nisi ipsa eius cum doloremque id, tenetur optio, perspiciatis, error adipisci illo accusantium itaque deserunt nesciunt laborum sequi odio dolores alias suscipit? Error dicta soluta odio rem illo nostrum quaerat maxime dolores odit laboriosam accusamus voluptatem veniam, autem, sit rerum hic aspernatur id dignissimos, distinctio reprehenderit? Odit asperiores vero omnis, nisi tempore aliquid sapiente, vitae minus optio recusandae, maiores dignissimos voluptates laboriosam in necessitatibus blanditiis dolor. Quo possimus ipsum, natus quasi cum ex impedit fuga deserunt ipsa, aliquid dolorem eos aspernatur labore aliquam reprehenderit totam nihil minus omnis atque quam obcaecati corporis? Ratione officiis voluptatibus earum fugiat ullam, incidunt, error quasi dignissimos esse, dolorem doloremque. Fuga reiciendis, eveniet laboriosam repellat facere repudiandae quis laudantium! Harum, unde odit. Magni odio esse repellat laborum error mollitia, ab corrupti dolorem officia debitis quod corporis quo, blanditiis dolorum vel eius quis eveniet sed eaque, molestias voluptas voluptate. Cum minima dolore eos repellendus voluptates, atque sapiente voluptatum facere, odit officia non, quod soluta. Minima perferendis, optio est id recusandae fugit nesciunt! Dolorem voluptatum, sit aut provident laboriosam necessitatibus, eos neque laborum dolor quae nobis earum corporis similique labore illum tempore temporibus quas itaque alias magni ad! Saepe necessitatibus vero esse, ipsam iste, minus cupiditate accusamus repudiandae!</p>
+                                    <p>Ea eum possimus temporibus dolores. Velit et, facilis saepe at vero quisquam, nemo, pariatur perspiciatis voluptate aut optio temporibus! Sunt id ipsam, exercitationem dolorem incidunt tempore maxime cum quam fugit hic sit facilis et velit non expedita, officiis necessitatibus neque ipsa! Sapiente similique explicabo quidem quam totam, id velit nisi assumenda, vel nobis voluptatem hic minima, iusto vitae magnam qui amet atque! Voluptate harum dolorum corrupti, neque iusto perspiciatis eligendi expedita odio doloribus quisquam commodi natus modi amet veniam, beatae tempore numquam optio labore voluptas asperiores id alias voluptatem, sapiente aliquid. Maxime omnis ducimus tenetur, fugit soluta odio eius provident sed velit ratione dolores nostrum corporis asperiores quam sit qui totam enim, beatae, dolorum aperiam ipsum id dolor nam. Animi minus quo nisi cum ad natus blanditiis, ut. Aspernatur quos inventore delectus illo tempora labore eligendi ipsum necessitatibus aliquam dolor perferendis ut porro, molestias laborum atque eum accusantium totam magni illum iusto sapiente quisquam natus dignissimos. Autem, ratione. Rerum perferendis architecto cum, quis veniam vitae harum sint minus culpa, ipsam vel maxime voluptatibus asperiores quo blanditiis quibusdam. Illo cupiditate ex est, tenetur laudantium quibusdam autem mollitia voluptatem fugit delectus consectetur explicabo voluptates ratione provident magnam perferendis, at nisi. Quos dignissimos, minus. Vel unde suscipit aperiam iste illo repudiandae dignissimos architecto fugiat inventore qui molestiae voluptatum error sapiente beatae nam accusamus odio ex, recusandae laudantium aut, doloremque sit culpa. Vel distinctio quas assumenda minima autem laboriosam quae ea odit ut ipsa doloremque natus iusto a modi id repudiandae alias magni quam suscipit, nemo aut. Non incidunt in est officia voluptatibus eligendi porro enim quam, quidem amet odio impedit consectetur similique possimus recusandae nemo atque. Nisi atque, ipsa, libero quidem nemo, veniam vel similique fugit tempore eos, praesentium quos. Facere, iure, ab. Placeat et culpa, corporis doloribus dignissimos. Delectus voluptate nobis officia.</p>
+
+                                    <p>{{ news.text|raw }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="areaWrapper">
+                        <div id="newsAdp" class="blockWhite newsAdpMulti flbr">
+                            <div id="list_all_news">
+                                <!-- MarketGidComposite Start --> <div id="MarketGidScriptRootC586093">
+                                    <div id="MarketGidPreloadC586093"> <a href="http://marketgid.com/" target="_blank">Загрузка...</a> </div>
+                                    <script> (function () { var D = new Date(), d = document, b = 'body', ce = 'createElement', ac = 'appendChild', st = 'style', ds = 'display', n = 'none', gi = 'getElementById'; var i = d[ce]('iframe'); i[st][ds] = n; d[gi]("MarketGidScriptRootC586093")[ac](i); try { var iw = i.contentWindow.document; iw.open(); iw.writeln("<ht" + "ml><bo" + "dy></bo" + "dy></ht" + "ml>"); iw.close(); var c = iw[b]; } catch (e) { var iw = d; var c = d[gi]("MarketGidScriptRootC586093"); } var dv = iw[ce]('div'); dv.id = "MG_ID"; dv[st][ds] = n; dv.innerHTML = 586093; c[ac](dv); var s = iw[ce]('script'); s.async = 'async'; s.defer = 'defer'; s.charset = 'utf-8'; s.src = "//jsc.marketgid.com/m/n/mn.newsrank.ru.586093.js?t=" + D.getYear() + D.getMonth() + D.getDate() + D.getHours(); c[ac](s); })(); </script>
+                                </div> <!-- MarketGidComposite End -->
+                            </div><div class="flbr"></div>
+
+                            <!--	<div id="newsAdpFooter">
+                                <img src="//st.directadvert.ru/img/ajax-loader-1.gif" alt="" />
+                            </div> -->
+                        </div>
+                        <div class="flbr"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flbr"></div>
+
+
+    </div>
+    <!--Pop up sign in-->
+    <div id="signUp" class="upBanner noBanner">
+        <div class="areaWrapper">
+            <div class="centered-signup">
+                <div class="b-content">
+                    <div class="registr-btn">
+                        <button class="fb-login">
+                            Войти через Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="fullscreen-signup" style="display:none;">
+                <div class="b-content">
+                    <div class="registr-btn">
+                        <button class="fb-login">
+                            Войти через Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Footer
+    ================================================== -->
+    <div class="footer">
+        <ul class="f_menu f_left">
+
+            <!--LiveInternet logo-->
+            <a href="http://www.liveinternet.ru/click"
+               target="_blank">
+                <img src="//counter.yadro.ru/logo?11.6"
+                     title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
+                     alt="" border="0" width="88" height="31" />
+            </a>
+            <!--/LiveInternet-->
+        </ul>
+        <div class="f_right" style="width: 700px;">
+            <p class="copyright">&copy;&nbsp;2014 Meganovosti.net   Все права защищены.</p>
+            <p class="f_use">Использование материалов и новостей Мегановости разрешается при условии ссылки на Meganovosti.net. Для новостных и интернет-изданий обязательной является прямая, открытая для поисковых систем, гиперссылка в первом абзаце на цитируемую статью или новость ссылка.</p>
+        </div>
+    </div>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-1664279-12', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+</body>
+</html>
