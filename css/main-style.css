@@ -1640,9 +1640,7 @@ BUTTON.e-btn:focus {
         background-size: 176px 60px;
     }
 }
-.b-logo:hover {
-    color: #fff;
-}
+
 .b-logo:hover .b-logo-slogan {
     opacity: 1;
 }
@@ -4609,13 +4607,15 @@ FOOTER .copyright {
     width: 0;
 }
 
-.inf-1 .mgbox,
-.inf-2 .mgbox,
-.inf-8 .mgbox,
-.inf-9 .mgbox{
+.inf-1,
+.inf-2{
     margin-top: 0;
 }
 
+.inf-8,
+.inf-9{
+    margin-top: -4px;
+}
 .mgbox .submit a {
     text-decoration: none;
     line-height: 21px;
@@ -4642,8 +4642,15 @@ FOOTER .copyright {
 .mgbox .image-with-text {
     margin-bottom: 0px;
     padding: 0px;
-    height: 155px;
 }
+.inf-3 .image-with-text,
+.inf-4 .image-with-text,
+.inf-8 .image-with-text,
+.inf-9 .image-with-text {
+    height: 150px;
+    overflow: hidden;
+}
+
 .mgbox .image-with-text .arrow_box {
     position: relative;
     background: #333333;
@@ -4774,6 +4781,7 @@ img.mcimg {
     flex-direction: column;
     word-wrap: break-word;
 }
+
 .mgline:hover .mctitle a {
     text-decoration: underline;
 }
@@ -4901,7 +4909,7 @@ span.mcpriceold {
     left:0;
     right:0;
     bottom:0;
-    background:rgba(0, 0, 0, 0.75);
+    background:rgba(0, 0, 0, 0.4);
 }
 
 
@@ -4958,7 +4966,6 @@ span.mcpriceold {
 /*}*/
 
 
-/*Inf-4 End*/
 
 .inf-5 .mgbox,
 .inf-6 .mgbox,
@@ -5064,9 +5071,9 @@ span.mcpriceold {
     padding-right: 15px;
     background: transparent url("http://novostionline.net/wp-content/themes/news-portal/images/page_arrow.png") no-repeat scroll right -30px;
 }
-.inf-5 .mgbox .mgline a:hover .reed-news,
-.inf-6 .mgbox .mgline a:hover .reed-news,
-.inf-7 .mgbox .mgline a:hover .reed-news{
+.inf-5 .mgline a:hover .reed-news,
+.inf-6 .mgline a:hover .reed-news,
+.inf-7 .mgline a:hover .reed-news{
     display: block;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
@@ -5075,6 +5082,10 @@ span.mcpriceold {
 }
 
 
+.inf-1,
+.inf-2{
+    margin-top: 0;
+}
 
 .inf-1 .mgline:hover .mctitle a,
 .inf-2 .mgline:hover .mctitle a{
@@ -5086,9 +5097,13 @@ span.mcpriceold {
     background-color: #f9f9f9;
     border-width: 1px;
     width: 24%;
-    height: 24%;
+    height: 284px;
     margin: .25%;
     padding-bottom: 10px;
+}
+.inf-2 .mgline {
+    width: 99%;
+    margin: 1%;
 }
 
 .inf-1 .mcdomain,
@@ -5107,6 +5122,7 @@ span.mcpriceold {
     font-size: 120%;
     line-height: 1.1;
     color: #0000CC;
+    padding: 0;
 }
 
 .inf-1 .mctitle,
@@ -5128,14 +5144,14 @@ span.mcpriceold {
     margin: 0 20px;
 }
 
-.inf-1 .mgbox .text-elements,
-.inf-2 .mgbox .text-elements {
+.inf-1 .text-elements,
+.inf-2 .text-elements {
     position: relative;
     background: #f9f9f9;
     max-width: 225px;
 }
 
-.inf-1 .mgbox .submit_domain,
-.inf-2 .mgbox .submit_domain {
+.inf-1 .submit_domain,
+.inf-2 .submit_domain {
     display: block;
 }
